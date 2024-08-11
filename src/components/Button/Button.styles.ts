@@ -1,64 +1,151 @@
-// Config
-import { styled } from "@/configs/stitches.config";
+// Color
+import { neutral, primary, semantic } from "@/shard/color";
+// Data
+import { ColorVariants, SizeVariants } from "@/shard/enums";
+import { ButtonShapeVariants } from "./Button.enum";
+// Library
+import { css } from "@emotion/react";
 // Type
-import type * as Stitches from "@stitches/react";
+import type { ButtonColorVariantsProps, ButtonShapeVariantsProps, ButtonSizeVariantsProps } from "./Button.types";
 
-/** 기본 버튼 컴포넌트 스타일 */
-const DefaultButtonStyle: Stitches.CSS = {
+/************************************
+ * 버튼 스타일
+ ************************************/
+export const buttonCSS = css({
   alignItems: "center",
-  border: "none",
-  borderRadius: "0.375rem",
+  backgroundColor: "var(--wds-primary-color)",
+  borderColor: "var(--wds-primary-color)",
+  borderRadius: "var(--wds-rounded)",
+  borderStyle: "solid",
+  borderWidth: "1px",
+  boxSizing: "border-box",
+  color: "var(--wds-font-color)",
   cursor: "pointer",
   display: "inline-flex",
-  fontSize: "0.875rem",
-  fontWeight: "500",
-  height: "38px",
+  fontSize: "var(--wds-font-size)",
+  fontWeight: "600",
+  gap: "6px",
+  height: "var(--wds-height)",
   justifyContent: "center",
-  padding: "0.5rem 1rem",
-  transition: "all 0.25s",
+  padding: "4px var(--wds-inline-padding)",
+  transition: "all 0.2s",
   whiteSpace: "nowrap",
-  "&:focuse": {
-    outline: "none",
+  "&:focus": {
+    boxShadow: `0 0 0 1px #f8fafc, 0 0 0 2px var(--wds-ring-color),0 1px 2px 0 #0000000d,0 0 #0000`,
   },
-};
-
-/** [Styled] 버튼 컴포넌트 */
-export const StyledButton = styled("button", {
-  /** Base styles */
-  ...DefaultButtonStyle,
-  /** Variants */
-  variants: {
-    color: {
-      default: {
-        backgroundColor: "$neutral0",
-        borderColor: "$neutral300",
-        borderWidth: "1px",
-        color: "$neutral700",
-        "&:hover": {
-          backgroundColor: "$neutral50",
-        },
-      },
-      error: {
-        backgroundColor: "$semantic600",
-        color: "$neutral0",
-        "&:hover": {
-          backgroundColor: "$semantic500",
-        },
-      },
-      primary: {
-        backgroundColor: "$primary600",
-        color: "$neutral0",
-        "&:hover": {
-          backgroundColor: "$primary500",
-        },
-      },
-      transparent: {
-        backgroundColor: "transparent",
-        color: "$neutral700",
-        "&:hover": {
-          color: "$primary600",
-        },
-      },
-    },
+  "&:disabled": {
+    cursor: "not-allowed",
+    opacity: "0.3",
   },
 });
+/************************************
+ * 버튼 색상 스타일
+ ************************************/
+export const buttonColorVariants: ButtonColorVariantsProps = {
+  [ColorVariants.contrast]: css({
+    "--wds-primary-color": neutral.neutral0,
+    "--wds-secondary-color": neutral.neutral900,
+    "--wds-font-color": neutral.neutral900,
+    "&:focus, &:hover": {
+      "--wds-primary-color": neutral.neutral50,
+    },
+  }),
+  [ColorVariants.destructive]: css({
+    "--wds-primary-color": semantic.semantic500,
+    "--wds-secondary-color": semantic.semantic500,
+    "--wds-font-color": "white",
+    "--wds-ring-color": semantic.semantic300,
+    "&:hover": {
+      "--wds-primary-color": semantic.semantic600,
+    },
+    "&:visited": {
+      "--wds-primary-color": semantic.semantic700,
+    },
+    "&:disabled": {
+      "--wds-primary-color": semantic.semantic500,
+    },
+  }),
+  [ColorVariants.primary]: css({
+    "--wds-primary-color": primary.primary500,
+    "--wds-secondary-color": primary.primary500,
+    "--wds-font-color": "white",
+    "--wds-ring-color": primary.primary300,
+    "&:hover": {
+      "--wds-primary-color": primary.primary600,
+    },
+    "&:visited": {
+      "--wds-primary-color": primary.primary700,
+    },
+    "&:disabled": {
+      "--wds-primary-color": primary.primary500,
+    },
+  }),
+  [ColorVariants.secondary]: css({
+    "--wds-primary-color": neutral.neutral75,
+    "--wds-secondary-color": neutral.neutral600,
+    "--wds-font-color": neutral.neutral600,
+    "--wds-ring-color": primary.primary300,
+    "&:hover": {
+      "--wds-primary-color": neutral.neutral100,
+    },
+    "&:visited": {
+      "--wds-primary-color": neutral.neutral150,
+    },
+    "&:disabled": {
+      "--wds-primary-color": neutral.neutral75,
+    },
+  }),
+};
+/************************************
+ * 버튼 모양 스타일
+ ************************************/
+export const buttonShapeVariants: ButtonShapeVariantsProps = {
+  [ButtonShapeVariants.default]: css({}),
+  [ButtonShapeVariants.ghost]: css({
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    color: "var(--wds-secondary-color)",
+    "&:hover": {
+      backgroundColor: neutral.neutral50,
+    },
+  }),
+  [ButtonShapeVariants.outline]: css({
+    backgroundColor: "white",
+    color: "var(--wds-secondary-color)",
+  }),
+};
+/************************************
+ * 버튼 모양 스타일
+ ************************************/
+export const buttonSizeVariants: ButtonSizeVariantsProps = {
+  [SizeVariants.xs]: css({
+    "--wds-font-size": "14px",
+    "--wds-height": "24px",
+    "--wds-inline-padding": "8px",
+    "--wds-rounded": "6px",
+  }),
+  [SizeVariants.sm]: css({
+    "--wds-font-size": "14px",
+    "--wds-height": "32px",
+    "--wds-inline-padding": "12px",
+    "--wds-rounded": "8px",
+  }),
+  [SizeVariants.md]: css({
+    "--wds-font-size": "14px",
+    "--wds-height": "40px",
+    "--wds-inline-padding": "16px",
+    "--wds-rounded": "8px",
+  }),
+  [SizeVariants.lg]: css({
+    "--wds-font-size": "16px",
+    "--wds-height": "48px",
+    "--wds-inline-padding": "24px",
+    "--wds-rounded": "10px",
+  }),
+  [SizeVariants.xl]: css({
+    "--wds-font-size": "18px",
+    "--wds-height": "56px",
+    "--wds-inline-padding": "32px",
+    "--wds-rounded": "12px",
+  }),
+};
