@@ -1,9 +1,9 @@
 // React
-import React from "react";
+import React, { forwardRef } from "react";
 // Primitives
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 // Style
-import { StyledDialogContent, StyledDialogOverlay } from "./Dialog.styles";
+import { StyledDialogClose, StyledDialogContent, StyledDialogDescription, StyledDialogHeader, StyledDialogOverlay, StyledDialogTitle } from "./Dialog.styles";
 
 /************************************
  * Dialog Root [Ref: https://www.radix-ui.com/primitives/docs/components/dialog#root]
@@ -37,4 +37,15 @@ export const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrim
       {children}
     </StyledDialogContent>
   </DialogPortal>
+));
+
+/************************************
+ * Dialog Header
+ ************************************/
+export const DialogHeader = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, any>(({ children, description, ...props }, forwardRef) => (
+  <StyledDialogHeader ref={forwardRef} {...props}>
+    <StyledDialogTitle>{children}</StyledDialogTitle>
+    <>{description && <StyledDialogDescription>{description}</StyledDialogDescription>}</>
+    <StyledDialogClose>X</StyledDialogClose>
+  </StyledDialogHeader>
 ));
