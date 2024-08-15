@@ -41,3 +41,29 @@ export const buttonStyle = css`
     background-color: var(--wds-background-color-active);
   }
 `;
+/************************************
+ * 액션 버튼 스타일
+ ************************************/
+export const actionButtonStyle = css`
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  height: var(--wds-height);
+  justify-content: center;
+  padding: 4px var(--wds-padding-x);
+  transition: all 0.2s;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+  &:hover {
+    background: var(--wds-background-color-hover);
+  }
+  &:active {
+    background: var(--wds-background-color-active);
+  }
+`;

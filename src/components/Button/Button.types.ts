@@ -17,6 +17,20 @@ export interface ButtonProps extends PropsWithChildren, React.ButtonHTMLAttribut
   /** 크기 */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 }
+
+/************************************
+ * 아이콘 버튼 컴포넌트 속성
+ ************************************/
+export interface ActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** CSS 스타일 속성 객체 */
+  css?: SerializedStyles;
+  /** 다크 모드 */
+  mode?: "dark" | "light";
+  /** 아이콘 이름 (https://lucide.dev/icons/) */
+  icon: keyof typeof icons;
+  /** 크기 */
+  size?: "sm" | "md" | "lg";
+}
 /************************************
  * 아이콘 버튼 컴포넌트 속성
  ************************************/

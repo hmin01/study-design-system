@@ -2,7 +2,7 @@
 import { alpha, neutral, primary, semantic } from "@/shard/color";
 // Enum
 import { ColorVariants, SizeVariants } from "@/shard/enums";
-import { ButtonShapeVariants } from "./Button.enum";
+import { ActionButtonColorVariants, ButtonShapeVariants } from "./Button.enum";
 // Library
 import { css } from "@emotion/react";
 
@@ -12,10 +12,10 @@ import { css } from "@emotion/react";
 export const buttonColorVariants = {
   [ColorVariants.contrast]: css`
     --wds-background-color: white;
-    --wds-background-color-active: ${alpha.light80A};
-    --wds-background-color-hover: ${alpha.light90A};
-    --wds-background-color-outline-active: ${alpha.light40A};
-    --wds-background-color-outline-hover: ${alpha.light20A};
+    --wds-background-color-active: ${alpha.dark80A};
+    --wds-background-color-hover: ${alpha.dark90A};
+    --wds-background-color-outline-active: ${alpha.dark40A};
+    --wds-background-color-outline-hover: ${alpha.dark20A};
     --wds-border-color: white;
     --wds-border-color-outline: white;
     --wds-font-color: ${neutral.neutral900};
@@ -155,5 +155,40 @@ export const iconButtonSizeVariants = {
     --wds-height: 56px;
     --wds-padding-x: 17px;
     --wds-border-radius: 12px;
+  `,
+};
+/************************************
+ * 액션 버튼 색상 스타일
+ ************************************/
+export const actionButtonColorVariants = {
+  [ActionButtonColorVariants.dark]: css`
+    --wds-background-color-active: ${alpha.light20A};
+    --wds-background-color-hover: ${alpha.light10A};
+    --wds-font-color: ${neutral.neutral600};
+  `,
+  [ActionButtonColorVariants.light]: css`
+    --wds-background-color-active: ${alpha.dark20A};
+    --wds-background-color-hover: ${alpha.dark10A};
+    --wds-font-color: ${neutral.neutral200};
+  `,
+};
+/************************************
+ * 액션 버튼 크기 스타일
+ ************************************/
+export const actionButtonSizeVariants = {
+  [SizeVariants.sm]: css`
+    --wds-height: 32px;
+    --wds-padding-x: 6px;
+    --wds-border-radius: 50%;
+  `,
+  [SizeVariants.md]: css`
+    --wds-height: 40px;
+    --wds-padding-x: 9px;
+    --wds-border-radius: 50%;
+  `,
+  [SizeVariants.lg]: css`
+    --wds-height: 48px;
+    --wds-padding-x: 13px;
+    --wds-border-radius: 50%;
   `,
 };

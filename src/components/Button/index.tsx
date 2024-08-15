@@ -5,12 +5,12 @@ import { icons } from "lucide-react";
 // React
 import { forwardRef } from "react";
 // Style
-import { buttonStyle } from "./Button.styles";
+import { actionButtonStyle, buttonStyle } from "./Button.styles";
 // Variants
-import { buttonColorVariants, buttonShapeVariants, buttonSizeVariants, iconButtonSizeVariants } from "./Button.variants";
+import { actionButtonColorVariants, buttonColorVariants, buttonShapeVariants, buttonSizeVariants, iconButtonSizeVariants } from "./Button.variants";
 // Type
 import type { SerializedStyles } from "@emotion/react";
-import type { ButtonProps, IconButtonProps } from "./Button.types";
+import type { ActionButtonProps, ButtonProps, IconButtonProps } from "./Button.types";
 
 /************************************
  * 버튼 컴포넌트
@@ -20,7 +20,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, co
     {children}
   </button>
 ));
+/************************************
+ * 액션 버튼 컴포넌트
+ ************************************/
+export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(({ css, icon, mode = "light", size = "md", ...props }: ActionButtonProps, forwardRef) => {
+  // 아이콘
+  const Icon = icons[icon];
 
+  return (
+    <button css={[actionButtonStyle, actionButtonColorVariants[mode], iconButtonSizeVariants[size], css]} ref={forwardRef} {...props}>
+      <Icon size={IconButtonSizeVariants[size]} />
+    </button>
+  );
+});
 /************************************
  * 아이콘 버튼 컴포넌트
  ************************************/

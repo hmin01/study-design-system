@@ -1,14 +1,14 @@
 // Component
-import { IconButton } from "@/components";
+import { ActionButton } from "@/components";
 // Storybook
 import { fn } from "@storybook/test";
 // Type
 import type { Meta, StoryObj } from "@storybook/react";
-import type { IconButtonProps } from "../Button.types";
+import type { ActionButtonProps } from "../Button.types";
 
-const meta: Meta<IconButtonProps> = {
-  title: "Component/IconButton",
-  component: IconButton,
+const meta: Meta<ActionButtonProps> = {
+  title: "Component/ActionButton",
+  component: ActionButton,
   parameters: {
     layout: "centered",
   },
@@ -21,35 +21,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More stories
-export const WithIcon: Story = {
+export const Basic: Story = {
   args: {
     icon: "Apple",
-    children: "Click me",
-  },
-};
-export const OnlyIcon: Story = {
-  args: {
-    icon: "Apple",
-  },
-};
-export const AddonAfter: Story = {
-  args: {
-    icon: "Apple",
-    iconPos: "addonAfter",
-    children: "Click me",
   },
 };
 export const Small: Story = {
   args: {
     icon: "Apple",
-    children: "Click me",
     size: "sm",
   },
 };
 export const Large: Story = {
   args: {
     icon: "Apple",
-    children: "Click me",
     size: "lg",
   },
 };

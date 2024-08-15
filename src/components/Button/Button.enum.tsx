@@ -1,5 +1,3 @@
-import { SizeVariants } from "@/shard/enums";
-
 /************************************
  * 버튼 모양 유형
  ************************************/
@@ -7,6 +5,13 @@ export enum ButtonShapeVariants {
   default = "default",
   ghost = "ghost",
   outline = "outline",
+}
+/************************************
+ * 액션 버튼 색상 유형
+ ************************************/
+export enum ActionButtonColorVariants {
+  dark = "dark",
+  light = "light",
 }
 /************************************
  * 아이콘 버튼 크기 유형
