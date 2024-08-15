@@ -71,7 +71,7 @@ export const StyledDialogClose = styled(PrimitiveDialog.Close)`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   width: 24px;
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);

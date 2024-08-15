@@ -1,6 +1,6 @@
 // Component
 import { Button } from "@/components/Button";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/Dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger, ModalHeaderWithBack } from "@/components/Dialog";
 // Storybook
 import { fn } from "@storybook/test";
 // Type
@@ -27,6 +27,18 @@ export const Basic = ({ ...props }) => (
     </DialogTrigger>
     <DialogContent>
       <DialogHeader description="description...">Title</DialogHeader>
+    </DialogContent>
+  </Dialog>
+);
+
+// Storybook object
+export const WithBack = ({ ...props }) => (
+  <Dialog>
+    <DialogTrigger asChild>
+      <Button shape={"outline"}>Open Modal</Button>
+    </DialogTrigger>
+    <DialogContent>
+      <ModalHeaderWithBack>Title</ModalHeaderWithBack>
     </DialogContent>
   </Dialog>
 );

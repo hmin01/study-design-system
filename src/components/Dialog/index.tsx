@@ -44,8 +44,20 @@ export const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrim
  ************************************/
 export const DialogHeader = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, any>(({ children, description, ...props }, forwardRef) => (
   <StyledDialogHeader ref={forwardRef} {...props}>
-    <StyledDialogTitle>{children}</StyledDialogTitle>
+    {typeof children === "string" ? <StyledDialogTitle>{children}</StyledDialogTitle> : <>{children}</>}
     <>{description && <StyledDialogDescription>{description}</StyledDialogDescription>}</>
     <StyledDialogClose>X</StyledDialogClose>
   </StyledDialogHeader>
+));
+
+/************************************
+ * Modal Header (with Back step button)
+ ************************************/
+export const ModalHeaderWithBack = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, any>(({ children, description, ...props }, forwardRef) => (
+  <DialogHeader ref={forwardRef} {...props}>
+    <div css={{ display: "flex" }}>
+      <span>{"<"}</span>
+      <StyledDialogTitle>{children}</StyledDialogTitle>
+    </div>
+  </DialogHeader>
 ));
