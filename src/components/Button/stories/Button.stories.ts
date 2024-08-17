@@ -19,7 +19,6 @@ export default meta;
 
 // 스토리 데이터 유형
 type Story = StoryObj<typeof meta>;
-
 // More stories
 export const Basic: Story = {
   args: {
