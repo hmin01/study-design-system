@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ActionButtonProps } from "../Button.types";
 
 const meta: Meta<ActionButtonProps> = {
-  title: "Component/ActionButton",
+  title: "Button/ActionButton",
   component: ActionButton,
   parameters: {
     layout: "centered",
@@ -16,25 +16,12 @@ const meta: Meta<ActionButtonProps> = {
   args: { onClick: fn() },
 };
 export default meta;
-
 // 스토리 데이터 유형
 type Story = StoryObj<typeof meta>;
 
-// More stories
-export const Basic: Story = {
+// Example
+export const Example: Story = {
   args: {
     icon: "Apple",
-  },
-};
-export const Small: Story = {
-  args: {
-    icon: "Apple",
-    size: "sm",
-  },
-};
-export const Large: Story = {
-  args: {
-    icon: "Apple",
-    size: "lg",
   },
 };

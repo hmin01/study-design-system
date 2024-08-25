@@ -4,13 +4,37 @@ import { neutral, primary, semantic } from "@/shard/color";
 import { css } from "@emotion/react";
 
 /************************************
+ * 입력 요소 컨테이너 스타일
+ ************************************/
+export const inputContainerStyle = css`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
+/************************************
+ * 입력 요소 아이콘 컨테이너 스타일
+ ************************************/
+export const inputIconContainerStyle = css`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: var(--wds-left);
+  right: var(--wds-right);
+  position: absolute;
+  top: 0;
+`;
+/************************************
  * 입력 요소 스타일
  ************************************/
 export const inputStyle = css`
+  align-items: center;
   border: 1px solid ${neutral.neutral200};
   border-radius: var(--wds-border-radius);
   box-sizing: border-box;
   display: inline-flex;
+  gap: 6px;
   font-size: var(--wds-font-size);
   height: var(--wds-height);
   outline: 2px solid transparent;

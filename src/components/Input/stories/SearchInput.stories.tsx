@@ -1,28 +1,30 @@
 // Component
-import { IconButton } from "@/components";
+import { SearchInput } from "../index";
 // Storybook
 import { fn } from "@storybook/test";
 // Type
 import type { Meta, StoryObj } from "@storybook/react";
-import type { IconButtonProps } from "../Button.types";
+import type { SearchInputProps } from "../Input.types";
 
-const meta: Meta<IconButtonProps> = {
-  title: "Button/IconButton",
-  component: IconButton,
+// Storybook metadata
+const meta: Meta<SearchInputProps> = {
+  title: "Input/SearchInput",
+  args: { onChange: fn(), onSearch: fn() },
+  component: SearchInput,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-  args: { onClick: fn() },
 };
+
 export default meta;
 // 스토리 데이터 유형
 type Story = StoryObj<typeof meta>;
 
-// Example
+// More Stories
 export const Example: Story = {
   args: {
-    icon: "Apple",
-    children: "Click me",
+    allowClear: true,
+    placeholder: "Search keyword",
   },
 };
