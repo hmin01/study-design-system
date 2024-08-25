@@ -35,8 +35,8 @@ export interface ActionButtonProps extends React.ButtonHTMLAttributes<HTMLButton
  * 아이콘 버튼 컴포넌트 속성
  ************************************/
 export interface IconButtonProps extends ButtonProps {
-  /** 아이콘 이름 (https://lucide.dev/icons/) */
-  icon: keyof typeof icons;
-  /** 아이콘 위치 */
-  iconPos?: "addonBefore" | "addonAfter";
+  /** 전위 아이콘 이름 */
+  leadingIcon?: keyof typeof icons;
+  /** 후위 아이콘 이름 */
+  trailingIcon?: keyof typeof icons;
 }

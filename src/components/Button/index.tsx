@@ -15,34 +15,39 @@ import type { ActionButtonProps, ButtonProps, IconButtonProps } from "./Button.t
 /************************************
  * 버튼 컴포넌트
  ************************************/
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, color = "secondary", css, shape = "default", size = "md", ...props }: ButtonProps, forwardRef) => (
-  <button css={[buttonStyle, buttonColorVariants[color], buttonSizeVariants[size], buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
-    {children}
-  </button>
-));
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, color = "secondary", css, shape = "default", size = "md", ...props }: ButtonProps, forwardRef) => (
+    <button css={[buttonStyle, buttonColorVariants[color], buttonSizeVariants[size], buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
+      {children}
+    </button>
+  )
+);
 /************************************
  * 액션 버튼 컴포넌트
  ************************************/
-export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(({ css, icon, mode = "light", size = "md", ...props }: ActionButtonProps, forwardRef) => {
-  // 아이콘
-  const Icon = icons[icon];
+export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
+  ({ css, icon, mode = "light", size = "md", ...props }: ActionButtonProps, forwardRef) => {
+    // 아이콘
+    const Icon = icons[icon];
 
-  return (
-    <button css={[actionButtonStyle, actionButtonColorVariants[mode], iconButtonSizeVariants[size], css]} ref={forwardRef} {...props}>
-      <Icon size={IconButtonSizeVariants[size]} />
-    </button>
-  );
-});
+    return (
+      <button css={[actionButtonStyle, actionButtonColorVariants[mode], iconButtonSizeVariants[size], css]} ref={forwardRef} {...props}>
+        <Icon size={IconButtonSizeVariants[size]} />
+      </button>
+    );
+  }
+);
 /************************************
  * 아이콘 버튼 컴포넌트
  ************************************/
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ children, color = "secondary", css, icon, iconPos = "addonBefore", shape = "default", size = "md", ...props }: IconButtonProps, forwardRef) => {
+  ({ children, color = "secondary", css, leadingIcon, trailingIcon, shape = "default", size = "md", ...props }: IconButtonProps, forwardRef) => {
     // 아이콘
-    const Icon = icons[icon];
+    const LeadingIcon = leadingIcon ? icons[leadingIcon] : undefined;
+    const TrailingIcon = trailingIcon ? icons[trailingIcon] : undefined;
 
     // 아이콘 여부
-    const isOnlyIcon: boolean = icon !== undefined && children === undefined;
+    const isOnlyIcon: boolean = (LeadingIcon || TrailingIcon) && children === undefined ? true : false;
     // 아이콘 크기
     const iconSize: number = IconButtonSizeVariants[size];
     // 버큰 크기에 대한 Variants
@@ -50,9 +55,9 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 
     return (
       <button css={[buttonStyle, buttonColorVariants[color], sizeVariants, buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
-        {iconPos === "addonBefore" && <Icon size={iconSize} />}
+        {LeadingIcon && <LeadingIcon size={iconSize} />}
         <>{children}</>
-        {iconPos === "addonAfter" && <Icon size={iconSize} />}
+        {TrailingIcon && <TrailingIcon size={iconSize} />}
       </button>
     );
   }
