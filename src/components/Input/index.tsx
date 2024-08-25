@@ -1,3 +1,5 @@
+// Color
+import { neutral } from "@/shard/enum/color";
 // Data
 import { PaddingVariants, IconSizeVariants } from "./Input.enum";
 // Icon
@@ -12,7 +14,7 @@ import { inputContainerStyle, inputIconContainerStyle, inputStyle } from "./Inpu
 import type { ChangeEvent, KeyboardEvent } from "react";
 import type { InputProps, SearchInputProps } from "./Input.types";
 // Utiltiy
-import { composeRef } from "@/shard/utilities/property";
+import { composeRef } from "@/shard/utility/property";
 // Variants
 import { inputSizeVariants } from "./Input.variants";
 
@@ -84,7 +86,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         />
         {isExist && (
           <div css={[inputIconContainerStyle, addonIconContainerStyle]}>
-            <XCircle color="white" css={{ cursor: "pointer" }} fill="black" onClick={onClearInner} size={iconSize} />
+            <XCircle color="white" css={{ cursor: "pointer" }} fill={neutral.neutral600} onClick={onClearInner} size={iconSize} />
           </div>
         )}
       </div>

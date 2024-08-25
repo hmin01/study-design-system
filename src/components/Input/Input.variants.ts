@@ -1,5 +1,5 @@
 // Data
-import { SizeVariants } from "@/shard/enums";
+import { SizeVariants } from "@/shard/enum/variants";
 import { PaddingVariants } from "./Input.enum";
 // Library
 import { css } from "@emotion/react";

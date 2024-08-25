@@ -1,5 +1,5 @@
 // Color
-import { neutral, primary, semantic } from "@/shard/color";
+import { neutral, primary, semantic } from "@/shard/enum/color";
 // Library
 import { css } from "@emotion/react";
 

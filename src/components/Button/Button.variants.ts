@@ -1,7 +1,7 @@
 // Color
-import { alpha, neutral, primary, semantic } from "@/shard/color";
+import { alpha, neutral, primary, semantic } from "@/shard/enum/color";
 // Enum
-import { ColorVariants, SizeVariants } from "@/shard/enums";
+import { ColorVariants, SizeVariants } from "@/shard/enum/variants";
 import { ActionButtonColorVariants, ButtonShapeVariants } from "./Button.enum";
 // Library
 import { css } from "@emotion/react";

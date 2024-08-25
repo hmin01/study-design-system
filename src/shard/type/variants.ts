@@ -1,5 +1,5 @@
 // Data
-import { ColorVariants, SizeVariants } from "./enums";
+import { ColorVariants, SizeVariants } from "@/shard/enum/variants";
 // Type
 import type { SerializedStyles } from "@emotion/react";
 
