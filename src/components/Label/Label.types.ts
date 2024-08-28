@@ -1,5 +1,3 @@
-// Data
-import { ColorVariants, SizeVariants } from "@/shard/enums";
 // Type
 import type { PropsWithChildren } from "react";
 import type { SerializedStyles } from "@emotion/react";
@@ -9,7 +7,7 @@ import type { SerializedStyles } from "@emotion/react";
  ************************************/
 export interface LabelProps extends PropsWithChildren, React.LabelHTMLAttributes<HTMLLabelElement> {
   /** 색상 속성 */
-  color?: ColorVariants;
+  color?: "primary" | "secondary";
   /** 스타일 속성 */
   css?: SerializedStyles;
   /** 설명 */
@@ -17,5 +15,5 @@ export interface LabelProps extends PropsWithChildren, React.LabelHTMLAttributes
   /** 필수 입력 여부 */
   required?: boolean;
   /** 크기 속성 */
-  size?: SizeVariants;
+  size?: "sm" | "md" | "lg";
 }

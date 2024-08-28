@@ -5,7 +5,7 @@ import { icons } from "lucide-react";
 // React
 import { forwardRef } from "react";
 // Style
-import { actionButtonStyle, buttonStyle } from "./Button.styles";
+import { StyledActionButton, StyledButton } from "./Button.styles";
 // Variants
 import { actionButtonColorVariants, buttonColorVariants, buttonShapeVariants, buttonSizeVariants, iconButtonSizeVariants } from "./Button.variants";
 // Type
@@ -17,9 +17,9 @@ import type { ActionButtonProps, ButtonProps, IconButtonProps } from "./Button.t
  ************************************/
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, color = "secondary", css, shape = "default", size = "md", ...props }: ButtonProps, forwardRef) => (
-    <button css={[buttonStyle, buttonColorVariants[color], buttonSizeVariants[size], buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
+    <StyledButton css={[buttonColorVariants[color], buttonSizeVariants[size], buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
       {children}
-    </button>
+    </StyledButton>
   )
 );
 /************************************
@@ -31,9 +31,9 @@ export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
     const Icon = icons[icon];
 
     return (
-      <button css={[actionButtonStyle, actionButtonColorVariants[mode], iconButtonSizeVariants[size], css]} ref={forwardRef} {...props}>
+      <StyledActionButton css={[actionButtonColorVariants[mode], iconButtonSizeVariants[size], css]} ref={forwardRef} {...props}>
         <Icon size={IconButtonSizeVariants[size]} />
-      </button>
+      </StyledActionButton>
     );
   }
 );
@@ -54,11 +54,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     const sizeVariants: SerializedStyles = isOnlyIcon ? iconButtonSizeVariants[size] : buttonSizeVariants[size];
 
     return (
-      <button css={[buttonStyle, buttonColorVariants[color], sizeVariants, buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
+      <StyledButton css={[buttonColorVariants[color], sizeVariants, buttonShapeVariants[shape], css]} ref={forwardRef} {...props}>
         {LeadingIcon && <LeadingIcon size={iconSize} />}
         <>{children}</>
         {TrailingIcon && <TrailingIcon size={iconSize} />}
-      </button>
+      </StyledButton>
     );
   }
 );

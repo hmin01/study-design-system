@@ -1,12 +1,12 @@
 // Color
 import { neutral, primary, semantic } from "@/shard/enum/color";
 // Library
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 /************************************
  * 입력 요소 컨테이너 스타일
  ************************************/
-export const inputContainerStyle = css`
+export const inputContainerStyle = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@ export const inputContainerStyle = css`
 /************************************
  * 입력 요소 아이콘 컨테이너 스타일
  ************************************/
-export const inputIconContainerStyle = css`
+export const inputIconContainerStyle = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
@@ -28,7 +28,7 @@ export const inputIconContainerStyle = css`
 /************************************
  * 입력 요소 스타일
  ************************************/
-export const inputStyle = css`
+export const inputStyle = styled.input`
   align-items: center;
   border: 1px solid ${neutral.neutral200};
   border-radius: var(--wds-border-radius);

@@ -3,7 +3,7 @@
  * @param classes 클래스 이름 목록
  * @returns 병합된 클래스 이름
  */
-export function classNames(...classes: string[]): string {
+export function classNames(...classes: (string | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 /**

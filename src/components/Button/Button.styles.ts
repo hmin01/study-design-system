@@ -1,10 +1,10 @@
 // Library
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 /************************************
  * 버튼 스타일
  ************************************/
-export const buttonStyle = css`
+export const StyledButton = styled.button`
   align-items: center;
   background-color: var(--wds-background-color);
   border-color: var(--wds-border-color);
@@ -36,6 +36,7 @@ export const buttonStyle = css`
       0 0 0 2px var(--wds-ring-color),
       0 1px 2px 0 #0000000d,
       0 0 #0000;
+    outline: none;
   }
   &:active {
     background-color: var(--wds-background-color-active);
@@ -44,7 +45,7 @@ export const buttonStyle = css`
 /************************************
  * 액션 버튼 스타일
  ************************************/
-export const actionButtonStyle = css`
+export const StyledActionButton = styled.button`
   align-items: center;
   background-color: transparent;
   border: none;
@@ -65,5 +66,6 @@ export const actionButtonStyle = css`
   }
   &:active {
     background: var(--wds-background-color-active);
+    outline: none;
   }
 `;

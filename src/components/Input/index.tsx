@@ -1,6 +1,6 @@
 // Color
 import { neutral } from "@/shard/enum/color";
-// Data
+// Enum
 import { PaddingVariants, IconSizeVariants } from "./Input.enum";
 // Icon
 import { Search, XCircle } from "lucide-react";
