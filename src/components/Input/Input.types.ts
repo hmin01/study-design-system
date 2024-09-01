@@ -1,11 +1,12 @@
-import type { Interpolation, Theme } from "@emotion/react";
+// Type
+import type { SerializedStyles } from "@emotion/react";
 
 /************************************
  * 기본 입력 컴포넌트 속성
  ************************************/
 export interface DefaultInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   /** CSS 스타일 속성 */
-  css?: Interpolation<Theme>;
+  css?: SerializedStyles;
   /** 에러 상태 */
   error?: boolean;
   /** 크기 속성 */

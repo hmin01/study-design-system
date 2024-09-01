@@ -47,7 +47,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     const TrailingIcon = trailingIcon ? icons[trailingIcon] : undefined;
 
     // 아이콘 여부
-    const isOnlyIcon: boolean = (LeadingIcon || TrailingIcon) && children === undefined ? true : false;
+    const isOnlyIcon: boolean = (LeadingIcon || TrailingIcon) && Boolean(children) ? false : true;
     // 아이콘 크기
     const iconSize: number = IconButtonSizeVariants[size];
     // 버큰 크기에 대한 Variants

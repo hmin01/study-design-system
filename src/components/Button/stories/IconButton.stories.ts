@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { IconButtonProps } from "../Button.types";
 
 const meta: Meta<IconButtonProps> = {
-  title: "Button/IconButton",
+  title: "Components/Button/IconButton",
   component: IconButton,
   parameters: {
     layout: "centered",
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 // Example
 export const Example: Story = {
   args: {
-    icon: "Apple",
+    leadingIcon: "Apple",
     children: "Click me",
   },
 };

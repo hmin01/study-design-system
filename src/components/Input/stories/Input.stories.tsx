@@ -8,7 +8,7 @@ import type { InputProps } from "../Input.types";
 
 // Storybook metadata
 const meta: Meta<InputProps> = {
-  title: "Input/Input",
+  title: "Components/Input/Input",
   component: Input,
   parameters: {
     layout: "centered",

@@ -1,12 +1,29 @@
 // Type
 import type { SerializedStyles } from "@emotion/react";
-import type { ChangeEvent, InputHTMLAttributes, PropsWithChildren } from "react";
+import type { InputHTMLAttributes, PropsWithChildren } from "react";
 
-export interface CheckboxProps extends PropsWithChildren, Pick<InputHTMLAttributes<HTMLInputElement>, "className"> {
+export interface StyledCheckboxGroupProps {
+  /** 아이템 정렬 방향 */
+  direction?: "horizantal" | "vertical";
+}
+
+export interface CheckboxProps extends PropsWithChildren, Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size"> {
   /** CSS 스타일 속성 객체 */
   css?: SerializedStyles;
+  /** 비활성화 여부 */
+  disabled?: boolean;
   /** 변경 이벤트 핸들러 */
-  onChange?: (e?: ChangeEvent<HTMLInputElement>) => void;
-  /** 그룹화를 위한 이름 */
-  name: string;
+  onChange?: (checked: boolean | "indeterminate") => void;
+  /** 크기 */
+  size?: "sm" | "md" | "lg";
+}
+export interface CheckboxGroupProps extends StyledCheckboxGroupProps {
+  /** CSS 스타일 속성 객체 */
+  css?: SerializedStyles;
+  /** 기본 값 */
+  defaultValue?: string[];
+  /** 체크박스 그룹 아이템 */
+  items: { label: string; value: boolean | number | string }[];
+  /** 변경 이벤트 핸들러 */
+  onChange?: (checked: string[]) => void;
 }

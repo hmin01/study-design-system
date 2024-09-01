@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ActionButtonProps } from "../Button.types";
 
 const meta: Meta<ActionButtonProps> = {
-  title: "Button/ActionButton",
+  title: "Components/Button/ActionButton",
   component: ActionButton,
   parameters: {
     layout: "centered",

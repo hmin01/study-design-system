@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ButtonProps } from "../Button.types";
 
 const meta: Meta<ButtonProps> = {
-  title: "Button/Button",
+  title: "Components/Button/Button",
   component: Button,
   parameters: {
     layout: "centered",

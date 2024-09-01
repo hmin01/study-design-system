@@ -8,7 +8,7 @@ import type { SearchInputProps } from "../Input.types";
 
 // Storybook metadata
 const meta: Meta<SearchInputProps> = {
-  title: "Input/SearchInput",
+  title: "Components/Input/SearchInput",
   args: { onChange: fn(), onSearch: fn() },
   component: SearchInput,
   parameters: {

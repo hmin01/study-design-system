@@ -1,14 +1,14 @@
 // Component
-import { Checkbox } from "@/components";
+import { CheckboxGroup } from "@/components";
 // Storybook
 import { fn } from "@storybook/test";
 // Type
 import type { Meta, StoryObj } from "@storybook/react";
-import type { CheckboxProps } from "../Checkbox.types";
+import type { CheckboxGroupProps } from "../Checkbox.types";
 
-const meta: Meta<CheckboxProps> = {
-  title: "Components/Checkbox/Checkbox",
-  component: Checkbox,
+const meta: Meta<CheckboxGroupProps> = {
+  title: "Components/Checkbox/CheckboxGroup",
+  component: CheckboxGroup,
   parameters: {
     layout: "centered",
   },
@@ -22,7 +22,10 @@ type Story = StoryObj<typeof meta>;
 // Example
 export const Example: Story = {
   args: {
-    children: "checkbox",
-    disabled: true,
+    items: [
+      { label: "Item 1", value: "1" },
+      { label: "Item 2", value: "2" },
+      { label: "Item 3", value: "3" },
+    ],
   },
 };
