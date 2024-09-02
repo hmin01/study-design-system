@@ -65,7 +65,7 @@ export const StyledCheckbox = styled.div`
   }
 `;
 /************************************
- * 체크박스 스타일
+ * 체크박스 Label 섹션 스타일
  ************************************/
 export const StyledCheckboxDescription = styled.div`
   display: flex;
@@ -76,6 +76,9 @@ export const StyledCheckboxDescription = styled.div`
     cursor: pointer;
   }
 `;
+/************************************
+ * 체크박스 그룹 스타일
+ ************************************/
 export const StyledCheckboxGroup = styled.div<StyledCheckboxGroupProps>`
   align-items: center;
   display: flex;
