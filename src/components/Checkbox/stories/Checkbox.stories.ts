@@ -14,6 +14,12 @@ const meta: Meta<CheckboxProps> = {
   },
   tags: ["autodocs"],
   args: { onChange: fn() },
+  argTypes: {
+    checked: {
+      control: "select",
+      options: [true, false, "indeterminate"],
+    },
+  },
 };
 export default meta;
 // 스토리 데이터 유형
@@ -23,6 +29,5 @@ type Story = StoryObj<typeof meta>;
 export const Example: Story = {
   args: {
     children: "checkbox",
-    disabled: true,
   },
 };

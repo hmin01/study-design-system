@@ -7,7 +7,9 @@ export interface StyledCheckboxGroupProps {
   direction?: "horizantal" | "vertical";
 }
 
-export interface CheckboxProps extends PropsWithChildren, Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size"> {
+export interface CheckboxProps extends PropsWithChildren, Omit<InputHTMLAttributes<HTMLInputElement>, "checked" | "onChange" | "size"> {
+  /** 선택 상태 */
+  checked?: boolean | "indeterminate";
   /** CSS 스타일 속성 객체 */
   css?: SerializedStyles;
   /** 비활성화 여부 */
