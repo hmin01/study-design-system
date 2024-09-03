@@ -1,21 +1,27 @@
+// Radix UI
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 // Type
 import type { SerializedStyles } from "@emotion/react";
-import type { InputHTMLAttributes, PropsWithChildren } from "react";
+import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-export interface StyledRadioGroupProps {
-  /** 아이템 정렬 방향 */
-  direction?: "horizantal" | "vertical";
-}
-
-export interface RadioGroupProps extends PropsWithChildren, Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value"> {
+interface DefaultRadioGroupProps {
   /** CSS 스타일 속성 객체 */
   css?: SerializedStyles;
-  /** 비활성화 여부 */
-  disabled?: boolean;
-  /** 변경 이벤트 핸들러 */
-  onChange?: (checked: boolean) => void;
   /** 크기 */
   size?: "sm" | "md" | "lg";
-  /** 라디오 값 */
-  value?: string;
 }
+
+export interface RadioGroupItemType {
+  /** 라벨 */
+  label: string;
+  /** 값 */
+  value: string;
+}
+
+export interface StyledRadioGroupProps extends Pick<ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>, "orientation"> {}
+
+export interface RadioGroupProps extends Omit<ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>, "css">, DefaultRadioGroupProps {
+  /** 아이템 */
+  items: RadioGroupItemType[];
+}
+export interface RadioGroupItemProps extends PropsWithChildren, ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>, Omit<DefaultRadioGroupProps, "css"> {}

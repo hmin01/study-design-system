@@ -14,6 +14,12 @@ const meta: Meta<RadioGroupProps> = {
   },
   tags: ["autodocs"],
   args: { onChange: fn() },
+  argTypes: {
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical", undefined],
+    },
+  },
 };
 export default meta;
 // 스토리 데이터 유형
@@ -22,6 +28,11 @@ type Story = StoryObj<typeof meta>;
 // Example
 export const Example: Story = {
   args: {
-    children: "checkbox",
+    items: [
+      { label: "Radio item 1", value: "1" },
+      { label: "Radio item 2", value: "2" },
+      { label: "Radio item 3", value: "3" },
+    ],
+    orientation: "vertical",
   },
 };
